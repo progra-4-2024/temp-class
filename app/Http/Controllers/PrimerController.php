@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\App;
 class PrimerController extends Controller
 {
     function index(){
@@ -16,6 +16,7 @@ class PrimerController extends Controller
         ]);
     }
     function show(Request $request, $texto='nada'){
+        
         
         $validator = Validator::make(
             $request->input(),

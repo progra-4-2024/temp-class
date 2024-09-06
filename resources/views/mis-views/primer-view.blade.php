@@ -3,12 +3,24 @@
 @section('title', 'Primer View')
 @section('content')
     @parent
+    <p>{{ __('messages.welcome', ['name' => 'dayle']) }} </p>
+    <p style="direction:rtl;">Hola mundo</p>
+    <div style="text-align:right;"><bdo dir="rtl">Hola mundo</bdo></div>
+    <style>
+        .vertical{
+        -webkit-writing-mode: vertical-rl;
+        -moz-writing-mode: vertical-rl;
+        -ms-writing-mode: vertical-rl;
+        writing-mode: vertical-rl;
+        }
+    </style>
+    <p class=vertical lang=ja>これはテストテキスト。<br/>日本語は楽しいです。</p>
     <ul>
     @foreach($messages as $message)
         <li>{{$message[0]}}</li>
     @endforeach
     </ul>
-
+    
     {{$texto}}<br />
     The current UNIX timestamp is {{ time() }}.
 
