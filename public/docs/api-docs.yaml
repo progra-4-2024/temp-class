@@ -1,0 +1,71 @@
+openapi: '3.0.0'
+info:
+  version: '2.0.0'
+  title: 'Autos'
+  description: Para consumir el catalogo de autos
+servers:
+  - url: https://example.io/v1
+    description: real
+  - url: http://temp.localhost/api
+    description: local
+
+paths:
+  /marcas/{MarcaId}:
+    parameters:
+      - name: MarcaId
+        description: The unique identifier of the marca
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/MarcaId'
+    get:
+      summary: Read a marca
+      responses:
+        '200':
+          description: The marca corresponding to the provided `MarcaId`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Marca'
+        404:
+          description: No marca found for the provided `MarcaId`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    MarcaId:
+      description: The unique identifier of a Marca
+      type: string
+    Marca:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          $ref: '#/components/schemas/MarcaId'
+        name:
+          type: string
+    Error:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          description: A human readable error message
+          type: string
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+security:
+  - ApiKey: []

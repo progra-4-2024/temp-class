@@ -4,8 +4,9 @@
 <head> <!-- cabecera (invisible) -->
     <meta charset="utf-8"> <!-- tipo de caracteres -->
     <title> @yield('title') </title> <!-- aparece en la barra de título-->
-    <link rel="stylesheet" href="/t-style.css">
+    <link rel="stylesheet" href="{{asset('t-style.css')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    @vite('resources/js/app.js')
 </head>
 
 <body> <!-- cuerpo de la página -->

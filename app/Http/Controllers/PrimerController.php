@@ -53,4 +53,9 @@ class PrimerController extends Controller
             'messages' => $messages,
         ]);
     }
+    /*FUNCION DE LA URL MODIFICADA*/
+    public function mostrarURL($texto)
+    {
+        return "TEXTO DE LA URL: " . $texto;
+    }
 }

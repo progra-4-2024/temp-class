@@ -26,4 +26,5 @@
         <textarea id="mensaje" name="mensaje"> {{old('mensaje')}}</textarea><br/>
         <input type="submit" value="Enviar"/>
     </form>
+    @vite('resources/js/app2.js')
 @endsection
